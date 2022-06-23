@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+
+main() {
+
+    setlocale(LC_ALL, "Portuguese");
+
+    int a, b, auxiliar, i, n,soma =0;
+
+    a = 0;
+    b = 1;
+
+    printf("Digite um número: ");
+    scanf("%d", &n);
+    printf("\nSérie de Fibonacci:\n\n");
+    printf("%d\n", b);
+
+    for(i = 0; i < n; i++) {
+
+        auxiliar = a + b;
+        a = b;
+        b = auxiliar;
+
+        printf("%d\n", auxiliar);
+        if(auxiliar == n){
+        	soma = 1;
+		}
+    }
+    if(soma == 1){
+    	printf("O numero está presente na sequencia fibonacci");
+	}
+	else{
+		printf("O numero digitado não está na sequencia Fibonacci");
+	}
+}
