@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <locale.h>
+
+struct local {
+    char Estado[20];
+    float Valor;
+};
+
+struct local l[30];
+
+main() {
+	
+	int est = 0,opc,i,numest;
+	char esc[2];
+	float total,porc;
+do{	
+	printf("MENU\n");
+	printf("1- Cadastrar Estado\n");
+	printf("2- Calcular Porcentagem\n");
+	printf("0- Sair\n");
+	printf("Escolha a opcao:");
+	scanf("%d",&opc);
+	switch(opc){
+		
+		case 1:
+			printf("Digite a quantidade de estados para cadastrar:");
+			scanf("%d",&numest);
+			for(i=0;i<numest;i++){
+				fflush(stdin);
+				printf("Digite as siglas do Estado:");
+				scanf("%c",&l[i].Estado);
+				fflush(stdin);
+				printf("Digite o valor da distribuidora:");
+				scanf("%f",&l[i].Valor);
+			}
+			break;
+		case 2:
+			printf("Digite o total arrecadado pela distribuidora:");
+			scanf("%f",&total);
+			fflush(stdin);
+			printf("Escolha o estado:");
+			scanf("%c",&esc);
+			fflush(stdin);
+			for(i=0;i<numest;i++){
+				if(strcmp(esc,l[i].Estado)==0){
+					printf("O valor adquirido pelo estado: %0.2f\n",l[i].Valor);
+					porc = (l[i].Valor*100)/total;
+					printf("Sua porcentagem em relação ao total eh: %0.2f porcento\n",porc);
+				}
+				break;
+			}
+	}
+}while(opc!=0);
+}
