@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+
+main() {
+	
+	float vet[30],soma = 0,max = 0,min = 0,media=0;
+	int i;
+	
+	for(i=1;i<=30;i++){
+		printf("Digite o valor do faturamento para o dia %d: ",i);
+		scanf("%f",&vet[i]);
+		soma = soma + vet[i];
+	}
+	max = vet[1];
+	min = vet[1];
+	for(i=1;i<=30;i++){
+		if(max < vet[i]){
+			max = vet[i];
+		}
+		if(min != 0){
+			if(vet[i]<min){
+				min = vet[i];
+			}
+		}
+	}
+	media = soma/30;
+	printf("Soma:%f \n",soma);
+	printf("Media:%f\n",media);
+	printf("Maior faturamento: %f\n",max);
+	printf("Menor faturamento: %f \n",min);
+}
